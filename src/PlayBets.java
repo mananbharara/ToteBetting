@@ -16,8 +16,7 @@ public class PlayBets {
 
     Pair<List<Bet>, Result> betsAndResult = Parser.parse(allLines);
 
-    final ToteBetEngine toteBetEngine = new ToteBetEngine();
-    final List<Dividend> dividends = toteBetEngine.processDividends(betsAndResult._1(), betsAndResult._2());
+    final List<Dividend> dividends = ToteBetEngine.processDividends(betsAndResult._1(), betsAndResult._2());
 
     System.out.println(Parser.stringify(dividends));
   }

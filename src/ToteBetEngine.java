@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class ToteBetEngine {
 
-  public List<Dividend> processDividends(List<Bet> bets, Result result) {
+  public static List<Dividend> processDividends(List<Bet> bets, Result result) {
     final Map<String, List<Bet>> betsPerProduct = bets
       .stream()
       .collect(Collectors.groupingBy(Bet::getProduct));
@@ -25,7 +25,7 @@ public class ToteBetEngine {
       .collect(Collectors.toList());
   }
 
-  private Function<Map.Entry<String, List<Bet>>, Product> productProcessor() {
+  private static Function<Map.Entry<String, List<Bet>>, Product> productProcessor() {
     return e -> {
       final List<Bet> bets = e.getValue();
       if (WinProduct.PRODUCT_INITIAL.equals(e.getKey())) {
