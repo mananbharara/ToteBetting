@@ -27,10 +27,11 @@ public class ToteBetEngine {
 
   private Function<Map.Entry<String, List<Bet>>, Product> productProcessor() {
     return e -> {
+      final List<Bet> bets = e.getValue();
       if (WinProduct.PRODUCT_INITIAL.equals(e.getKey())) {
-        return new WinProduct(e.getValue());
+        return new WinProduct(bets);
       }
-      return new PlaceProduct(e.getValue());
+      return new PlaceProduct(bets);
     };
   }
 }
